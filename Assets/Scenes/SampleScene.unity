@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 2083490964}
   - component: {fileID: 2083490963}
   - component: {fileID: 2083490962}
+  - component: {fileID: 2083490966}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -238,7 +239,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  dashForce: 0
+  dashForce: 50
+  startDashTime: 0.1
+  isDashing: 0
+  direction: 0
 --- !u!50 &2083490963
 Rigidbody2D:
   serializedVersion: 4
@@ -248,7 +252,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083490961}
   m_BodyType: 0
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -325,3 +329,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2083490966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083490961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9213016f09c8dd1458409b940e2d7403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
