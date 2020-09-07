@@ -25,8 +25,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update() {
-        if (isDashing) dashTime -= Time.time;
-        if (dashTime <= 0f) { rb.velocity = Vector2.zero; isDashing = false; }
+        if (isDashing) dashTime -= 0.1f;
+        if (dashTime <= 0f) { 
+            rb.velocity = Vector2.zero; 
+            isDashing = false; 
+        }
         Movement();
         if (Input.GetKeyDown(KeyCode.Space)) {
             dashTime = startDashTime;
@@ -39,10 +42,10 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxis("Vertical");
 
         transform.Translate(new Vector3(moveX, moveY, 0) * speed * Time.deltaTime);
-        if (moveX > 0f) direction = directions.right;
-        else if (moveX < 0f) direction = directions.left;
-        if (moveY > 0f) direction = directions.up;
-        else if (moveY < 0f) direction = directions.down;
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) direction = directions.right;
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) direction = directions.left;
+        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) direction = directions.up;
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) direction = directions.down;
     }
 
     void Dash() {
